@@ -13,6 +13,7 @@ router.post('/postSale', validateSession, validateAdmin, (req, res) => {
         mileage: req.body.car.mileage,
         vin: req.body.car.vin,
         description: req.body.car.description,
+        img: req.body.car.img,
         ownerId: req.user.id
     }
     Car.create(carForSale)
@@ -46,7 +47,8 @@ router.put('/update/:id', validateSession, validateAdmin, (req, res) => {
         color: req.body.car.color,
         mileage: req.body.car.mileage,
         vin: req.body.car.vin,
-        description: req.body.car.description
+        description: req.body.car.description,
+        img: req.body.car.img
     };
 
     const query = {where: { id: req.params.id }};

@@ -31,6 +31,10 @@ module.exports = (sequelize, DataTypes) => {
         description: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        img: {
+            type: DataTypes.BLOB,
+            allowNull: true
         }
     })
     return Car;
