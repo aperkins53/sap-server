@@ -3,6 +3,8 @@ const User = require('../db').import('../models/user');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const validateSession = require('../middleware/validate-session');
+const validateAdmin = require ('../middleware/validate-admin');
+const cloudinary = require('cloudinary');
 
 router.post('/register', (req, res) => {
     User.create({
@@ -64,5 +66,43 @@ router.post("/login", (req, res) => {
 //     .then((user) => res.status(200).json(user))
 //     .catch((err) => res.status(500).json({ error: err, message: 'cannot make user an admin'})); 
 // });
+
+// router.get('/cloudsign', validateSession, validateAdmin, async (req, res) => {
+//   try {
+//     const ts = Math.floor(new Date().getTime() / 1000).toString()
+
+//     const sig = cloudinary.utils.api_sign_request({
+//       timestamp: ts, upload_preset: 'cloudinary-mayhem'
+//     }, process.env.CLOUDINARY_SECRET
+//     )
+
+//     res.status(200).json({
+//       sig, ts
+//     })
+//   } catch (err) {
+//     res.status(500).json({
+//       message: 'failed to sign'
+//     })
+//   }
+// })
+
+// router.put('/imageset', validateSession, validateAdmin, async (req, res) => {
+//   try {
+//     const u = await User.findOne({where: {id: req.user.id}})
+
+//     const result = await u.update({
+//       avatar: req.body.url
+//     })
+
+//     res.status(200).json({
+//       message: 'avatar url saved',
+//       result
+//     })
+//   } catch (err) {
+//     res.status(500).json({
+//       message: 'failed to set image'
+//     })
+//   }
+// })
 
 module.exports = router;

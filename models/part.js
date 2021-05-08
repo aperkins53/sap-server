@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        condition: {
+        grade: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -23,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
         carModel: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        img: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
     })
     return Part;

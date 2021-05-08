@@ -12,7 +12,19 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        color: {
+        exteriorColor: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        interiorColor: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        transmission: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        drivetrain: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -24,6 +36,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: true
         },
+        price: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         ownerId: {
             type: DataTypes.INTEGER,
             allowNull: true
@@ -33,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         img: {
-            type: DataTypes.BLOB,
+            type: DataTypes.STRING,
             allowNull: true
         }
     })

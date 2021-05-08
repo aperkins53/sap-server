@@ -9,11 +9,12 @@ const Part = require('../db').import('../models/part');
 router.post('/postSale', validateSession, validateAdmin, (req, res) => {
     const partForSale = {
         partName: req.body.part.partName,
-        condition: req.body.part.condition,
+        grade: req.body.part.grade,
         price: req.body.part.price,
         carYear: req.body.part.carYear,
         carMake: req.body.part.carMake,
-        carModel: req.body.part.carModel
+        carModel: req.body.part.carModel,
+        img: req.body.part.img
     }
     Part.create(partForSale)
         .then(part => res.status(200).json(part))
@@ -39,11 +40,12 @@ router.get('/:partName', (req, res) => {
 router.put('/update/:id', validateSession, validateAdmin, (req, res) => {
     const listingToUpdate = {
         partName: req.body.part.partName,
-        condition: req.body.part.condition,
+        grade: req.body.part.grade,
         price: req.body.part.price,
         carYear: req.body.part.carYear,
         carMake: req.body.part.carMake,
-        carModel: req.body.part.carModel
+        carModel: req.body.part.carModel,
+        img: req.body.part.img
     };
 
  
